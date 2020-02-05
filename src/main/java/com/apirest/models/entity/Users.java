@@ -37,7 +37,7 @@ public class Users implements Serializable{
 	private String email;
 	
 	@Column(name = "gender")
-	private String gender;
+	private byte gender;
 	
 	@Column(name = "picture")
 	private String picture;
@@ -96,11 +96,11 @@ public class Users implements Serializable{
 		this.email = email;
 	}
 
-	public String getGender() {
+	public byte getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(byte gender) {
 		this.gender = gender;
 	}
 
