@@ -3,6 +3,7 @@ package com.apirest.models.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,22 +20,31 @@ public class Users implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsers;
 
+	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "first_name")
 	private String firstName;
 	
+	@Column(name = "last_name")
 	private String lastName;
 	
+	@Column(name = "birth_date")
 	private Date birthDate;
 	
-	private byte age;
-	
+	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "gender")
 	private String gender;
 	
+	@Column(name = "picture")
 	private String picture;
 	
+	@Column(name = "description", columnDefinition = "text")
+	private String description;
+	
+	@Column(name = "is_active")
 	private boolean isActive;
 
 	public Long getIdUsers() {
@@ -76,15 +86,7 @@ public class Users implements Serializable{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-
-	public byte getAge() {
-		return age;
-	}
-
-	public void setAge(byte age) {
-		this.age = age;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
@@ -107,6 +109,16 @@ public class Users implements Serializable{
 
 	public void setPicture(String picture) {
 		this.picture = picture;
+	}
+	
+	public String getDescription()
+	{
+		return description;
+	}
+	
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 
 	public boolean getIsActive() {
