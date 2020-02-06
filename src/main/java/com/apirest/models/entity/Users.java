@@ -3,11 +3,15 @@ package com.apirest.models.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -36,8 +40,9 @@ public class Users implements Serializable{
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "gender")
-	private byte gender;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "gender_id")
+	private Gender gender;
 	
 	@Column(name = "picture")
 	private String picture;
@@ -96,11 +101,11 @@ public class Users implements Serializable{
 		this.email = email;
 	}
 
-	public byte getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(byte gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
